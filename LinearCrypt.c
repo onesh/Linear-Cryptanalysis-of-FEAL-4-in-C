@@ -237,7 +237,7 @@ void generate_K_4_K_5_and_matching_sets_of_keys(int possible_key_0, int possible
     }
     time(&end_time);
     if (TOTAL_KEYS_FOUND == 0)
-        printf("Time taken to find first key combination(K0...K6): %0.4f seconds\n", difftime(end_time, start_time));
+        printf("Time taken to find first key combination((K0...K5)): %0.4f seconds\n", difftime(end_time, start_time));
     ++TOTAL_KEYS_FOUND;
 
     printf("K0: 0x%02x K1: 0x%02x K2: 0x%02x K3: 0x%02x K4: 0x%02x K5: 0x%02x\n", possible_key_0, possible_key_1, possible_key_2, possible_key_3, possible_key_4, possible_key_5);
@@ -545,7 +545,7 @@ int main(int argc, char **argv)
     time(&end_time);
 
     printf("Total key combinations found: %d\n", TOTAL_KEYS_FOUND);
-    printf("Time taken to find all key combinations(K0...K6): %.2f seconds\n", difftime(end_time, start_time));
+    printf("Time taken to find all key combinations((K0...K5)): %.2f seconds\n", difftime(end_time, start_time));
 
     if (argc != 8)
     {
