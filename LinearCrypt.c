@@ -2,6 +2,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define WORD32 unsigned int
 #define BYTE unsigned char
@@ -194,7 +195,7 @@ void generate_K_4_K_5_and_matching_sets_of_keys(int possible_key_0, int possible
     int possible_key_4 = reverse_bytes(LEFT0 ^ RIGHT0 ^ round_fun_1_res ^ round_fun_3_res ^ LEFT4);
     int possible_key_5 = reverse_bytes(RIGHT0 ^ round_fun_1_res ^ round_fun_3_res ^ round_fun_0_res ^ round_fun_2_res ^ RIGHT4);
 
-    int key[] = {possible_key_0, possible_key_1, possible_key_2, possible_key_3, possible_key_4, possible_key_5};
+    unsigned int key[] = {possible_key_0, possible_key_1, possible_key_2, possible_key_3, possible_key_4, possible_key_5};
 
     unsigned char data[8];
     // unsigned char tmp[2];
@@ -210,7 +211,7 @@ void generate_K_4_K_5_and_matching_sets_of_keys(int possible_key_0, int possible
         {
 
             strncpy(tmp, cipher_text[ctr] + i * 2, bytes);
-            tmp[3] = '\0';
+            tmp[2] = '\0';
             data[i] = (unsigned char)((int)strtol(tmp, NULL, 16) & 255);
         }
 
